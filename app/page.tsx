@@ -8,6 +8,10 @@ import Portfolio from "@/components/portfolio/Portfolio";
 import Testimonials from "@/components/testimonials/Testimonials";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
+import SocialSection from "@/components/home/SocialSection";
+import FAQ from "@/components/faq/Faq";
+
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#050816]">
@@ -19,8 +23,11 @@ export default function Home() {
       <Solutions />
       <Portfolio />
       <Testimonials />
+      <FAQ />
       <Contact />
-      <Footer />
+      <SocialSection />
+     
+
     </main>
   );
 }

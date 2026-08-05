@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import Script from "next/script";
+
+import "./globals.css";
+
+import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 import Schema from "./schema";
+import WhatsAppButton from "@/components/floating/WhatsAppButton";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,45 +20,65 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase:  new URL("https://techgeniushaiti.com"),
-  
-  title: "Techgenius Haiti | Technologie & Solutions Digitales",
-  
+  metadataBase: new URL("https://www.techgeniushaiti.com"),
+
+  alternates: {
+    canonical: "https://www.techgeniushaiti.com",
+  },
+
+  title: {
+    default: "Techgenius Haiti | Technologie & Solutions Digitales",
+    template: "%s | Techgenius Haiti",
+  },
+
   description:
-    "Techgenius Haiti propose des services de réparation téléphone, informatique, réseaux, cybersécurité et vente de matériel électronique.",
+    "Techgenius Haiti propose des services de réparation d'ordinateurs portables, réparation téléphone, informatique, réseaux, cybersécurité, développement web et vente de matériel électronique.",
 
   keywords: [
     "Techgenius Haiti",
-    "réparation téléphone Haiti",
+    "réparation laptop",
+    "réparation ordinateur portable",
+    "réparation ordinateur",
+    "réparation téléphone",
     "informatique Haiti",
-    "vente matériel électronique",
-    "solutions technologiques Haiti",
+    "installation Windows",
+    "réseaux",
+    "cybersécurité",
+    "développement web",
+    "Apple",
+    "Samsung",
   ],
+
+  verification: {
+    google: "8T6NbRBNNcVWMOivU",
+    other: {
+      "trustpilot-one-time-domain-verification-id":
+        "c5c4fb05-6cd2-40ad-a56c-45066888e201",
+    },
+  },
 
   openGraph: {
     title: "Techgenius Haiti",
-    description:
-      "La nouvelle génération de la technologie en Haïti.",
-    url: "https://techgeniushaiti.com",
+    description: "La nouvelle génération de la technologie en Haïti.",
+    url: "https://www.techgeniushaiti.com",
     siteName: "Techgenius Haiti",
+    locale: "fr_FR",
+    type: "website",
     images: [
       {
-        url: "/images/logo.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Techgenius Haiti",
       },
     ],
-    locale: "fr_FR",
-    type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
     title: "Techgenius Haiti",
-    description:
-      "Solutions technologiques, réparation et matériel électronique en Haïti.",
-    images: ["/images/logo.png"],
+    description: "Solutions technologiques en Haïti.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -66,28 +92,40 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-    <Schema />
-  {children}
+      <body className="min-h-full flex flex-col bg-[#050816] text-white">
+        <Schema />
 
+        <Navbar />
 
-  <Script
-    src="https://www.googletagmanager.com/gtag/js?id=G-F4S507RC8Z"
-    strategy="afterInteractive"
-  />
+        <main className="flex-1">{children}</main>
 
-  <Script id="google-analytics" strategy="afterInteractive">
-    {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        <Footer />
+        <WhatsAppButton />
 
-      gtag('config', 'G-F4S507RC8Z');
-    `}
-  </Script>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-F4S507RC8Z"
+          strategy="afterInteractive"
+        />
 
-</body>
-      
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-F4S507RC8Z');
+          `}
+        </Script>
+
+        {/* Google AdSense */}
+        <Script
+          id="google-adsense"
+          async
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5109352769615824"
+          crossOrigin="anonymous"
+        />
+      </body>
     </html>
   );
 }

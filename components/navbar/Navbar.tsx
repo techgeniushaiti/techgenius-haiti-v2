@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone } from "lucide-react";
+import TopBar from "./TopBar";
 
 export default function Navbar() {
   return (
@@ -83,6 +84,7 @@ export default function Navbar() {
 
 
       </div>
+      <TopBar />
 
     </header>
   );
