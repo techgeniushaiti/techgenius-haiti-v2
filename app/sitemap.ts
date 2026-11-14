@@ -1,10 +1,16 @@
-import { MetadataRoute } from "next";
+
+import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://techgeniushaiti.com",
-      lastModified: new Date(),
-    },
+  const baseUrl = "https://techgeniushaiti.com";
+
+  const pages = [
+    "",
+    "/about",
+    "/reparation-ordinateur",
   ];
+
+  return pages.map((page) => ({
+    url: `${baseUrl}${page}`,
+  }));
 }
