@@ -11,6 +11,15 @@ import Footer from "@/components/footer/Footer";
 import SocialSection from "@/components/home/SocialSection";
 import FAQ from "@/components/faq/Faq";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
+
 
 export default function Home() {
   return (

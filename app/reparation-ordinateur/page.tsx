@@ -7,6 +7,13 @@ import Brands from "@/components/ordinateur/Brands";
 import FAQ from "@/components/ordinateur/FAQ";
 import CTA from "@/components/ordinateur/CTA";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/reparation-ordinateur",
+  },
+};
 
 export default function Page() {
   return (

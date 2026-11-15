@@ -21,11 +21,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.techgeniushaiti.com"),
-
-  alternates: {
-    canonical: "https://www.techgeniushaiti.com",
-  },
-
   title: {
     default: "Techgenius Haiti | Technologie & Solutions Digitales",
     template: "%s | Techgenius Haiti",
