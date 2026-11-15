@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -5,15 +6,21 @@ import Link from "next/link";
 import { Phone } from "lucide-react";
 import TopBar from "./TopBar";
 
+const navLinks = [
+  { label: "Accueil", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "Produits", href: "/#products" },
+  { label: "Solutions", href: "/#solutions" },
+  { label: "À propos", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
 export default function Navbar() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#050816]/80 backdrop-blur-xl">
-
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#050816]/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
-        {/* Logo */}
-        <Link href="#home" className="flex items-center gap-3">
-
+        <Link href="/" className="flex items-center gap-3">
           <Image
             src="/images/logo.png"
             alt="Techgenius Haiti"
@@ -23,69 +30,40 @@ export default function Navbar() {
           />
 
           <div>
-            <h1 className="text-xl font-bold text-white">
+            <span className="block text-xl font-bold text-white">
               Techgenius
-            </h1>
-
-            <p className="text-xs text-gray-400">
-              Haiti
-            </p>
+            </span>
+            <p className="text-xs text-gray-400">Haiti</p>
           </div>
-
         </Link>
 
-
-        {/* Menu */}
-        <nav className="hidden md:flex gap-8 text-gray-300">
-
-          <Link href="#home" className="hover:text-blue-400 transition">
-            Accueil
-          </Link>
-
-          <Link href="#services" className="hover:text-blue-400 transition">
-            Services
-          </Link>
-
-          <Link href="#products" className="hover:text-blue-400 transition">
-            Produits
-          </Link>
-
-          <Link href="#solutions" className="hover:text-blue-400 transition">
-            Solutions
-          </Link>
-
-          <Link href="#about" className="hover:text-blue-400 transition">
-            À propos
-          </Link>
-
-          <Link href="#contact" className="hover:text-blue-400 transition">
-            Contact
-          </Link>
-
+        <nav
+          aria-label="Navigation principale"
+          className="hidden gap-8 text-gray-300 md:flex"
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="transition hover:text-blue-400"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
-
-        {/* WhatsApp */}
         <a
-          href="https://wa.me/50939283126"
+          href="https://wa.me/50938813277"
           target="_blank"
-          className="rounded-xl bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-500"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-500"
         >
-
-          <div className="flex items-center gap-2">
-
-            <Phone size={18}/>
-
-            WhatsApp
-
-          </div>
-
+          <Phone size={18} />
+          WhatsApp
         </a>
-
-
       </div>
-      <TopBar />
 
+      <TopBar />
     </header>
   );
 }
