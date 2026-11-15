@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
-import { UserRound } from "lucide-react";
+import FounderHistory from "@/components/about/FounderHistory";import { UserRound } from "lucide-react";
 
 const values = [
   "Professionnalisme",
@@ -14,16 +14,28 @@ const values = [
 ];
 
 
+
 export const metadata: Metadata = {
-  title: "À propos",
+  title: "Camfort G. Billyson, fondateur de Techgenius Haiti | Depuis 2019",
 
   description:
-    "Découvrez Techgenius Haiti, votre partenaire en réparation, informatique, cybersécurité et solutions digitales.",
+    "Découvrez Camfort G. Billyson, fondateur et Directeur Général de Techgenius Haiti, une entreprise de solutions informatiques fondée en 2019 en Haïti.",
 
   alternates: {
     canonical: "/about",
   },
+
+  openGraph: {
+    title: "Camfort G. Billyson | Fondateur de Techgenius Haiti",
+    description:
+      "Découvrez le fondateur de Techgenius Haiti, son histoire depuis 2019 et la vision technologique de l'entreprise.",
+    url: "https://www.techgeniushaiti.com/about",
+    siteName: "Techgenius Haiti",
+    locale: "fr_HT",
+    type: "website",
+  },
 };
+
 
 
 export default function AboutPage() {
@@ -46,7 +58,6 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-
       {/* Notre histoire / Mission / Vision */}
       <section className="bg-[#07111f] py-20">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2">
@@ -134,7 +145,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
+<FounderHistory />
       {/* Notre équipe */}
       <section className="bg-[#07111f] py-24">
         <div className="mx-auto max-w-7xl px-6">
